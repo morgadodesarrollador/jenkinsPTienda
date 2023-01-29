@@ -1,2 +1,2 @@
 
-echo "Instalando la tienda"
+echo "Instalando la tienda en Nest"
