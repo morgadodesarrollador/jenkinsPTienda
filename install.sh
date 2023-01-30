@@ -1,2 +1,2 @@
 
-echo "Instalando la tienda App Componentes"
+echo "Instalando la tienda App Corte Ingles"
