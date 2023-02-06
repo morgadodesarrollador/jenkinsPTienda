@@ -1,5 +1,5 @@
 
-echo "Desplegando la app de pTienda"
+echo "Desplegando la app rde pTienda"
 
 docker-compose -f docker-compose.yml build
 docker-compose -f docker-compose.yml up -d
