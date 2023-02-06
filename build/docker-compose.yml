@@ -3,7 +3,7 @@ services:
   web: 
     build: 
       context: ${DIR_DFILES}
-      dockerfile: ./Dockerfile
+      dockerfile: ./dockerfile
     env_file: 
       - ./.env
     ports: 
