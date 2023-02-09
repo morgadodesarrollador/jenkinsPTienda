@@ -1,5 +1,5 @@
 
-echo "Desplegando la app rde gdfaspTienda"
+echo "Desplegando la app rde sgdsfgsdfggdfaspTienda"
 
 docker-compose -f ./build/docker-compose.yml down
 
