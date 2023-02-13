@@ -21,7 +21,7 @@ services:
     image: ub-base-apinestincidencias
     build:
       context: ./
-      dockerfile: ./Dockerfile
+      dockerfile: ./dockerfile
       args:
         - USUARIO=${USUARIO}
         - PASSWD=${PASSWD}
