@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   dbincidenciasnest:
-    container_name: bdlIncidenciasnest
+    container_name: bdIncidenciasNest
     image: postgres:14.3
     restart: always
     ports:
@@ -15,7 +15,7 @@ services:
   
   weblibrerianest:
     container_name: apiIncidenciasNest
-    image: ub-base-apinestincidencias
+    image: apinestincidencias
     build:
       context: ./
       dockerfile: ./dockerfile
