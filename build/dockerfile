@@ -23,10 +23,21 @@ ENV DB_PASSWORD=${DB_PASSWORD}
 ENV URL_Repo_GIT=${URL_Repo_GIT}
 ENV NEST_PORT=${NEST_PORT}
 
+   
 
-
+RUN dos2unix /root/start.sh 
 # RUN echo "$USUARIO, $PROYECTO, $DB_NAME" > /home/datos_dfile.txt
 RUN apt-get update && apt-get install -y -q --no-install-recommends \
+    apt-utils \
+    wget \ 
+    curl \ 
+    git \
+    nano \ 
+    sudo \ 
+    unzip \
+    dos2unix \ 
+    expect \
+    python3 \
     ca-certificates \
     gnupg2 \
     nginx
