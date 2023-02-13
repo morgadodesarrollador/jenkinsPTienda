@@ -43,8 +43,8 @@ WORKDIR /root
 #     && nvm use default
 
 # COPY ./start.sh /root
-COPY ./start-nest.sh /root
-COPY ./nginx.conf /root
+COPY ./scripts/start-nest.sh /root
+COPY ./conf/nginx.conf /root
 
 COPY ./nodesource.list /etc/apt/sources.list.d/
 RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - 
