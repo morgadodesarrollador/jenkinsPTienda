@@ -1,8 +1,8 @@
 # FROM ub-base
 # FROM ubuntu
 # FROM node:16-alpine3.14
-FROM node:19-alpine
-# FROM node:lts-alpine3.17
+# FROM node:19-alpine
+FROM node:16.3.0-alpine
 
 
 ARG USUARIO
@@ -38,7 +38,11 @@ COPY ./build/conf/nginx.conf .
 RUN npm install -g npm@8.15.0
 RUN npm install --force && npm run build
 
-
+RUN cd dist
+RUN pwd 
+RUN node --version
+RUN ls -la
 
 EXPOSE 3005
-CMD [ "node ./dist/main.js" ]
+# CMD [ "node ./dist/main.js" ]
+CMD ["nest start"]
