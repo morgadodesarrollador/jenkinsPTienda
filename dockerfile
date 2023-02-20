@@ -29,12 +29,12 @@ ENV URL_Repo_GIT=${URL_Repo_GIT}
 ENV NEST_PORT=${NEST_PORT}
 
 # RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN npm install -g npm@8.15.0
-RUN npm install --global yarn
+RUN npm install -g npm@8.15.0 --force
+RUN npm install --global yarn --force
 WORKDIR /app
 COPY ./api_nest/package.json .
 COPY ./api_nest/yarn.lock .
-RUN yarn install
+RUN yarn install --force
 
 COPY ./api_nest .
 RUN yarn build
