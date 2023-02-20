@@ -1,5 +1,5 @@
 docker-compose -f docker-compose.yml down
-docker rmi ub-base-apinestincidencias:latest 
+docker rmi apinestincidencias:latest 
 docker image prune
 
 sudo rm -rf postgres
