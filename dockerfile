@@ -28,10 +28,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
 # RUN echo "$USUARIO, $PROYECTO, $DB_NAME" > /home/datos_dfile.txt
-RUN apt-get update && apt-get install -y -q --no-install-recommends \
-    apt-utils \
+# RUN apt-get update && apt-get install -y -q --no-install-recommends \
+#     apt-utils \
     # wget \ 
-    curl \ 
+    # curl \ 
     # git \
     # nano \ 
     # sudo \ 
@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
     # python3 \
     # ca-certificates \
     # gnupg2 \
-    nginx
+    # nginx
 
 # install nvm
 # WORKDIR /root 
@@ -59,9 +59,9 @@ COPY ./build/start-nest.sh /root
 COPY ./api_nest /root
 COPY ./build/conf/nginx.conf /root
 
-COPY ./build/conf/nodesource.list /etc/apt/sources.list.d/
-RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - 
-RUN apt-get update && apt-get install -y nodejs
+# COPY ./build/conf/nodesource.list /etc/apt/sources.list.d/
+# RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - 
+# RUN apt-get update && apt-get install -y nodejs
 # RUN apt-get upadfasddate && apt-get install -y -q --no-install-recommends \
 #     nodejs
 
