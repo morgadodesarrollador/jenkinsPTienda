@@ -35,7 +35,7 @@ COPY ./build/start-nest.sh .
 COPY ./api_nest .
 COPY ./build/conf/nginx.conf .
 RUN npm install -g npm@9.5.0
-RUN npm install
+RUN npm install --force
 
 
 #.,<jv.,<b<z
