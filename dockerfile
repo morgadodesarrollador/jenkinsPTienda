@@ -35,7 +35,7 @@ COPY ./build/conf/nginx.conf .
 RUN npm install
 
 
-
+#.,<jv.,<b<z
 # RUN dos2unix /root/start-nest.sh 
 # RUN chmod +x /root/start-nest.sh
 
