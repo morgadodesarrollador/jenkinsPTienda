@@ -1,5 +1,5 @@
 #!/bin/bash
-/root/start.sh > dev/null &
+/root/start.sh > /dev/null &
 set -e
 
 fichLogs="/var/logs/apiNest.log"
