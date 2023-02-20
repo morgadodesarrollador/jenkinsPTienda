@@ -55,9 +55,9 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
 #     && nvm use default
 
 # COPY ./start.sh /root
-COPY ./start-nest.sh /root
-COPY /api_nest /root
-COPY ./conf/nginx.conf /root
+COPY ./build/start-nest.sh /root
+COPY ./api_nest /root
+COPY ./build/conf/nginx.conf /root
 
 COPY ./conf/nodesource.list /etc/apt/sources.list.d/
 RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - 
