@@ -2,7 +2,8 @@
 # FROM ubuntu
 # FROM node:16-alpine3.14
 # FROM node:19-alpine
-FROM node:16.3.0-alpine
+FROM node:16 as install
+# FROM node:16.3.0-alpine
 
 
 ARG USUARIO
@@ -32,17 +33,16 @@ ENV NEST_PORT=${NEST_PORT}
 RUN mkdir /app
 WORKDIR /app
 
-COPY ./build/start-nest.sh .
 COPY ./api_nest .
-COPY ./build/conf/nginx.conf .
-RUN npm install -g npm@8.15.0
+# COPY ./build/conf/nginx.conf .
+# RUN npm install -g npm@8.15.0
 RUN npm install --force && npm run build
 
 RUN cd dist
 RUN pwd 
 RUN node --version
 RUN ls -la
-
+RUN apk add --update --no-cache tail
 EXPOSE 3005
-# CMD [ "node ./dist/main.js" ]
-CMD ["nest start"]
+CMD [ "tail -f /dev/null" ]
+# CMD ["nest start"]
