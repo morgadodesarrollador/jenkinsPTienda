@@ -30,13 +30,15 @@ ENV NEST_PORT=${NEST_PORT}
 
 # RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN mkdir /app
 WORKDIR /app
+COPY ./api_nest/package.json .
+COPY ./api_nest/yarn.lock .
+RUN yarn install
 
 COPY ./api_nest .
 # COPY ./build/conf/nginx.conf .
 # RUN npm install -g npm@8.15.0
-RUN npm install --force && npm run build
+RUN yarn build
 
 RUN cd dist
 RUN pwd 
