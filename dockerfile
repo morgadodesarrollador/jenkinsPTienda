@@ -59,7 +59,7 @@ COPY ./build/start-nest.sh /root
 COPY ./api_nest /root
 COPY ./build/conf/nginx.conf /root
 
-COPY ./conf/nodesource.list /etc/apt/sources.list.d/
+COPY ./build/conf/nodesource.list /etc/apt/sources.list.d/
 RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - 
 RUN apt-get update && apt-get install -y nodejs
 # RUN apt-get upadfasddate && apt-get install -y -q --no-install-recommends \
