@@ -1,6 +1,8 @@
 # FROM ub-base
 # FROM ubuntu
-FROM node:16-alpine3.14
+# FROM node:16-alpine3.14
+FROM node:lts-alpine3.17
+
 
 ARG USUARIO
 ARG PASSWD
