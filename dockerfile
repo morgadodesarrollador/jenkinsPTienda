@@ -35,10 +35,10 @@ WORKDIR /app
 COPY ./build/start-nest.sh .
 COPY ./api_nest .
 COPY ./build/conf/nginx.conf .
-RUN npm install -g npm@9.5.0
+RUN npm install -g npm@8.15.0
 RUN npm install --force && npm run build
 
 
 
 EXPOSE 3005
-CMD [ "node main.js" ]
+CMD [ "node ./dist/main.js" ]
