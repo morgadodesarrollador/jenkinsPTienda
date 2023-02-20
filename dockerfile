@@ -1,6 +1,6 @@
 # FROM ub-base
-FROM ubuntu
-#FROM node:16-alpine3.14
+# FROM ubuntu
+FROM node:16-alpine3.14
 
 ARG USUARIO
 ARG PASSWD
@@ -30,17 +30,17 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # RUN echo "$USUARIO, $PROYECTO, $DB_NAME" > /home/datos_dfile.txt
 RUN apt-get update && apt-get install -y -q --no-install-recommends \
     apt-utils \
-    wget \ 
+    # wget \ 
     curl \ 
-    git \
-    nano \ 
-    sudo \ 
-    unzip \
-    dos2unix \ 
-    expect \
-    python3 \
-    ca-certificates \
-    gnupg2 \
+    # git \
+    # nano \ 
+    # sudo \ 
+    # unzip \
+    # dos2unix \ 
+    # expect \
+    # python3 \
+    # ca-certificates \
+    # gnupg2 \
     nginx
 
 # install nvm
@@ -65,7 +65,7 @@ RUN apt-get update && apt-get install -y nodejs
 # RUN apt-get upadfasddate && apt-get install -y -q --no-install-recommends \
 #     nodejs
 
-RUN dos2unix /root/start-nest.sh 
+# RUN dos2unix /root/start-nest.sh 
 RUN chmod +x /root/start-nest.sh
 
 EXPOSE 3005
