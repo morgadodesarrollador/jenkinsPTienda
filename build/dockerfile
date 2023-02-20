@@ -43,7 +43,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
     nginx
 
 # install nvm
-WORKDIR /root 
+# WORKDIR /root 
 # ENV NVM_DIR /usr/local/nvm
 # ENV NODE_VERSION 18.1.0
 # RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash 
@@ -54,7 +54,8 @@ WORKDIR /root
 #     && nvm use default
 
 # COPY ./start.sh /root
-COPY ./scripts/start-nest.sh /root
+COPY ./start-nest.sh /root
+COPY ./api_nest /root
 COPY ./conf/nginx.conf /root
 
 COPY ./conf/nodesource.list /etc/apt/sources.list.d/
@@ -66,5 +67,5 @@ RUN apt-get update && apt-get install -y nodejs
 RUN dos2unix /root/start-nest.sh 
 RUN chmod +x /root/start-nest.sh
 
-EXPOSE 80
+EXPOSE 3005
 ENTRYPOINT [ "/root/start-nest.sh" ]
