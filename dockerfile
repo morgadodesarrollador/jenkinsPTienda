@@ -35,8 +35,6 @@ RUN yarn build
 
 WORKDIR /app/dist
 
-# RUN node --version
-# RUN ls -la ./dist
 EXPOSE 3005
 
 # ENTRYPOINT ["tail", "-f", "/dev/null"]
