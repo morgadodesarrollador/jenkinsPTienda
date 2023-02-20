@@ -39,4 +39,4 @@ RUN pwd
 RUN node --version
 RUN ls -la
 EXPOSE 3005
-CMD ["node main.js"]
+CMD ["node ./dist/main.js"]
