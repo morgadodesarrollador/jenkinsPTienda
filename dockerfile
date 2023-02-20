@@ -29,7 +29,7 @@ ENV NEST_PORT=${NEST_PORT}
 
 # RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-
+RUN mkdir /app
 WORKDIR /app
 
 COPY ./build/start-nest.sh .
@@ -39,10 +39,6 @@ RUN npm install -g npm@9.5.0
 RUN npm install --force && npm run build
 
 
-#.,<jv.,<b<z
-# RUN dos2unix /root/start-nest.sh 
-# RUN chmod +x /root/start-nest.sh
 
 EXPOSE 3005
-# ENTRYPOINT [ "/root/start-nest.sh" ]
 CMD [ "node main.js" ]
