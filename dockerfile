@@ -41,4 +41,4 @@ WORKDIR /app/dist
 EXPOSE 3005
 # CMD ["node ./dist/main.js"]
 # ENTRYPOINT  node .
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/app/start.sh"]
