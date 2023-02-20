@@ -1,5 +1,4 @@
-# FROM ub-base
-# FROM ubuntu
+
 # FROM node:16-alpine3.14
 # FROM node:19-alpine
 FROM node:16 as install
@@ -39,7 +38,6 @@ WORKDIR /app/dist
 # RUN node --version
 # RUN ls -la ./dist
 EXPOSE 3005
-# CMD ["node ./dist/main.js"]
-# ENTRYPOINT  node .
-# ENTRYPOINT ["/app/start.sh"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["node", "main.js"]
