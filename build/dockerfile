@@ -55,7 +55,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
 
 # COPY ./start.sh /root
 COPY ./start-nest.sh /root
-COPY ./api_nest /root
+COPY ../api_nest /root
 COPY ./conf/nginx.conf /root
 
 COPY ./conf/nodesource.list /etc/apt/sources.list.d/
