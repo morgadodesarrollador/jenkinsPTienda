@@ -1,7 +1,8 @@
 # FROM ub-base
 # FROM ubuntu
 # FROM node:16-alpine3.14
-FROM node:lts-alpine3.17
+FROM node:19-alpine
+# FROM node:lts-alpine3.17
 
 
 ARG USUARIO
@@ -35,7 +36,7 @@ COPY ./build/start-nest.sh .
 COPY ./api_nest .
 COPY ./build/conf/nginx.conf .
 RUN npm install -g npm@9.5.0
-RUN npm install --force
+RUN npm install --force && npm run build
 
 
 #.,<jv.,<b<z
@@ -44,4 +45,4 @@ RUN npm install --force
 
 EXPOSE 3005
 # ENTRYPOINT [ "/root/start-nest.sh" ]
-CMD [ "npm run start:dev" ]
+CMD [ "node main.js" ]
