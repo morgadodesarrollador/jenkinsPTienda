@@ -2,8 +2,8 @@
 # FROM ubuntu
 # FROM node:16-alpine3.14
 # FROM node:19-alpine
-# FROM node:16 as install
-FROM node:16.3.0-alpine
+FROM node:16
+# FROM node:16.3.0-alpine
 
 
 ARG USUARIO
