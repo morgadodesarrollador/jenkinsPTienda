@@ -51,7 +51,8 @@ main(){
     
     # config_nginx
     # config_git
-    config_nest
+    
+    # config_nest
     tail -f /dev/null 
 }
 main
