@@ -23,7 +23,8 @@ ENV DB_PASSWORD=${DB_PASSWORD}
 ENV URL_Repo_GIT=${URL_Repo_GIT}
 ENV NEST_PORT=${NEST_PORT}
 
-   
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 
 # RUN echo "$USUARIO, $PROYECTO, $DB_NAME" > /home/datos_dfile.txt
 RUN apt-get update && apt-get install -y -q --no-install-recommends \
