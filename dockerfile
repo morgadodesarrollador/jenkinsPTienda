@@ -69,5 +69,5 @@ COPY ./build/conf/nginx.conf /root
 RUN chmod +x /root/start-nest.sh
 
 EXPOSE 3005
-# ENTRYPOINT [ "/root/start-nest.sh" ]
-CMD [ "tail -f /dev/null" ]
+ENTRYPOINT [ "/root/start-nest.sh" ]
+# CMD [ "tail -f /dev/null" ]
