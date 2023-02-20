@@ -34,9 +34,8 @@ RUN yarn install --force
 COPY ./api_nest .
 RUN yarn build
 
-RUN cd dist
-RUN pwd 
 RUN node --version
-RUN ls -la
+RUN ls -la ./dist
 EXPOSE 3005
-CMD ["node ./dist/main.js"]
+# CMD ["node ./dist/main.js"]
+ENTRYPOINT [ "node ./dist/main.js" ]
