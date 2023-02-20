@@ -42,7 +42,7 @@ RUN cd dist
 RUN pwd 
 RUN node --version
 RUN ls -la
-RUN apk add --update --no-cache tail
+RUN apk update && apk add --no-cache tail
 EXPOSE 3005
 CMD [ "tail -f /dev/null" ]
 # CMD ["nest start"]
