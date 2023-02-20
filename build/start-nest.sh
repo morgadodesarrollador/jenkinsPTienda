@@ -44,7 +44,7 @@ config_nest(){
 
     npm install --force && npm run start:dev
     #npm run start:prod
-    # nginx dist/main
+    # nginx dist/main>Jdcbz,jdbfz
 }
 
 main(){
