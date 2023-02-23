@@ -20,15 +20,12 @@ services:
       context: ../
       dockerfile: ./dockerfile
       args:
-        - USUARIO=${USUARIO}
-        - PASSWD=${PASSWD}
         - PROYECTO=${PROYECTO}
         - DB_HOST=${DB_HOST}
         - DB_NAME=${DB_NAME}
         - DB_USERNAME=${DB_USERNAME}
         - DB_PASSWORD=${DB_PASSWORD}
         - DB_PORT=${DB_PORT}
-        - URL_Repo_GIT=${URL_Repo_GIT}
         - NEST_PORT=${NEST_PORT}
     env_file:
        - ./.env
