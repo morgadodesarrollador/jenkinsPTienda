@@ -36,3 +36,4 @@ RUN yarn install --production=true
 # #levantar nginx
 # CMD [ "nginx", "-g", "daemon off;" ]
 ENTRYPOINT ["node", "index.js"]
+#lanzamos node
