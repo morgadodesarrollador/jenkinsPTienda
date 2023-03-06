@@ -17,7 +17,7 @@ services:
     container_name: apiIncidenciasNest
     image: apinestincidencias
     build:
-      context: ../
+      context: ./
       dockerfile: ./dockerfile
       args:
         - PROYECTO=${PROYECTO}
