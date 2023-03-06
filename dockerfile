@@ -26,8 +26,10 @@ RUN yarn install --force
 COPY ./api_nest .
 
 RUN yarn build
-RUN yarn config set network-timeout 60000
-RUN yarn install --production=true
+# RUN yarn config set network-timeout 60000
+# RUN yarn install --production=true
+WORKDIR /app/dist
+EXPOSE 3005
 
 # FROM nginx:1.19.0-alpine as deploy
 # COPY --from=install /app/dist/main.js /usr/share/nginx/html/index.js
