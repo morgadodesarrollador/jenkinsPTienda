@@ -30,7 +30,7 @@ services:
     env_file:
        - ./.env
     ports:
-      - 81:80
+      - ${NEST_PORT}:81
     volumes:
       - ./web:/var/www/html
       - ./logs:/var/logs
