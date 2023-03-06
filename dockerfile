@@ -29,16 +29,16 @@ RUN yarn build
 ENV NODE_ENV production
 RUN yarn config set network-timeout 60000
 RUN yarn install --production=true && yarn cache clean --force
-WORKDIR /app/dist
-EXPOSE 3005
+# WORKDIR /app/dist
+# EXPOSE 3005
 
-# FROM nginx:1.19.0-alpine as deploy
-# COPY --from=install /app/dist/main.js /usr/share/nginx/html/index.js
-# # COPY --from=install /app/dist/node_modules /usr/share/nginx/html/node_modules
-# EXPOSE 80
+FROM nginx:1.19.0-alpine as deploy
+COPY --from=install /app/dist/main.js /usr/share/nginx/html/index.js
+COPY --from=install /app/node_modules /usr/share/nginx/html/node_modules
+EXPOSE 80
 # #levantar nginx
-# CMD [ "nginx", "-g", "daemon off;" ]
-ENTRYPOINT ["node", "main.js"]
+CMD [ "nginx", "-g", "daemon off;" ]
+# ENTRYPOINT ["node", "main.js"]
 
 
 
