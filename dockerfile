@@ -38,9 +38,7 @@ EXPOSE 3005
 # #levantar nginx
 # CMD [ "nginx", "-g", "daemon off;" ]
 ENTRYPOINT ["node", "main.js"]
-#lanzamos node
-#lanzamos node
-#lanzamos node
-#lanzamos node
+
+
 
 
