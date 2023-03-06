@@ -35,7 +35,7 @@ RUN yarn install --production=true
 # EXPOSE 80
 # #levantar nginx
 # CMD [ "nginx", "-g", "daemon off;" ]
-ENTRYPOINT ["node", "index.js"]
+ENTRYPOINT ["node", "main.js"]
 #lanzamos node
 #lanzamos node
 #lanzamos node
