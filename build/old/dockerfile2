@@ -18,19 +18,30 @@ ENV DB_USERNAME=${DB_USERNAME}
 ENV DB_PASSWORD=${DB_PASSWORD}
 ENV NEST_PORT=${NEST_PORT}
 
-WORKDIR /app
+WORKDIR /src/install
 COPY ./api_nest/package.json .
 COPY ./api_nest/yarn.lock .
-RUN yarn install --force
 
-COPY ./api_nest .
+RUN yarn config set network-timeout 60000
+RUN yarn install
+
+FROM node:16 as compile
+LABEL stage=compile
+
+WORKDIR /src/build
+COPY --from=install /src/install .
+COPY ./api_nest/ .
 
 RUN yarn build
 RUN yarn config set network-timeout 60000
 RUN yarn install --production=true
 
-FROM nginx:1.19.0-alpine as deploy
-COPY --from=install /app/dist/main.js /usr/share/nginx/html/index.js
-COPY --from=install /app/dist/node_modules /usr/share/nginx/html/node_modules
-EXPOSE 80
-CMD [ "nginx", "-g", "daemon off;" ]
+FROM node:16-alpine as deploy
+WORKDIR /app
+
+COPY --from=compile /src/build/dist/main.js index.js
+COPY --from=compile /src/build/node_modules node_modules
+
+ENTRYPOINT ["node", "index.js"]
+
+
