@@ -32,5 +32,5 @@ RUN yarn install --production=true
 FROM nginx:1.19.0-alpine as deploy
 COPY --from=install /app/dist/main.js /usr/share/nginx/html/index.js
 # COPY --from=install /app/dist/node_modules /usr/share/nginx/html/node_modules
-EXPOSE 80
+EXPOSE 81
 CMD [ "nginx", "-g", "daemon off;" ]
