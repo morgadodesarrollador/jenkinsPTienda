@@ -19,11 +19,11 @@ ENV DB_PASSWORD=${DB_PASSWORD}
 ENV NEST_PORT=${NEST_PORT}
 
 WORKDIR /app
-COPY ./api_nest/package.json .
-COPY ./api_nest/yarn.lock .
+COPY ../api_nest/package.json .
+COPY ../api_nest/yarn.lock .
 RUN yarn install --force
 
-COPY ./api_nest .
+COPY ../api_nest .
 
 RUN yarn build
 RUN yarn config set network-timeout 60000

@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  dbincidenciasnest:
+    container_name: bdIncidenciasNest
+    image: postgres:14.3
+    restart: always
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+  
+  weblibrerianest:
+    container_name: apiIncidenciasNest
+    image: apinestincidencias
+    build:
+      context: ../
+      dockerfile: ./dockerfile
+      args:
+        - PROYECTO=${PROYECTO}
+        - DB_HOST=${DB_HOST}
+        - DB_NAME=${DB_NAME}
+        - DB_USERNAME=${DB_USERNAME}
+        - DB_PASSWORD=${DB_PASSWORD}
+        - DB_PORT=${DB_PORT}
+        - NEST_PORT=${NEST_PORT}
+    env_file:
+       - ./.env
+    ports:
+      - ${NEST_PORT}:81
+    volumes:
+      - ./web:/var/www/html
+      - ./logs:/var/logs
+    # depends_on:
+    #   - db  
